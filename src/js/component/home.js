@@ -1,27 +1,28 @@
 import React, { useState } from "react";
 
-//create your first component
 export function ToDo() {
 	const [userInput, setUserInput] = useState("");
 	const [task, setTask] = useState([]);
 
 	const handleInfo = () => {
-		if (userInput != null) {
+		if (userInput != "") {
 			let newArray = [...task, userInput];
 			setTask(newArray);
 			setUserInput("");
 		}
 	};
-
 	const deleteTask = id => {
-		task.splice(id, 1);
-		setTask([...task]);
+		let newTasks = [...task];
+		newTasks.splice(id, 1);
+		setTask(newTasks);
 	};
 
 	return (
-		<div>
-			<div className="container"></div>
+		<div className="card" id="mainCard">
+			<div className="card-body"></div>
+			<h1 className="card-header">Todo List</h1>
 			<input
+				className="mb-2"
 				type="text"
 				required
 				value={userInput}
@@ -29,10 +30,10 @@ export function ToDo() {
 				onKeyPress={e => (e.key === "Enter" ? handleInfo() : "")}
 			/>
 			{task.map((final, id) => (
-				<p onClick={deleteTask} key={id}>
+				<span className="card-subtitle mb-3" key={id}>
 					{final}
-					<button onClick={() => deleteTask()}>Delete</button>
-				</p>
+					<button onClick={() => deleteTask(id)}>Delete</button>
+				</span>
 			))}
 		</div>
 	);
