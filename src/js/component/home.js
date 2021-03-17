@@ -2,7 +2,11 @@ import React, { useState } from "react";
 
 export function ToDo() {
 	const [userInput, setUserInput] = useState("");
-	const [task, setTask] = useState([]);
+	const [task, setTask] = useState([
+		"Comer",
+		"Estudiar",
+		"Hacer bien mis tareas de React"
+	]);
 
 	const handleInfo = () => {
 		if (userInput != "") {
@@ -11,10 +15,17 @@ export function ToDo() {
 			setUserInput("");
 		}
 	};
+	//solucion public support
+	// const deleteTask = id => {
+	// 	let newTasks = [...task];
+	// 	newTasks.splice(id, 1);
+	// 	setTask(newTasks);
+	// };
+
+	// mi solucion
 	const deleteTask = id => {
-		let newTasks = [...task];
-		newTasks.splice(id, 1);
-		setTask(newTasks);
+		task.splice(id, 1);
+		setTask([...task]);
 	};
 
 	return (
