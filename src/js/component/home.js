@@ -12,11 +12,6 @@ export function ToDo() {
 				required
 				value={task}
 				onChange={e => setTask(e.target.value)}
-				onKeyPress={e => {
-					if (e.key === "Enter") {
-						setTask(e.target.value);
-					}
-				}}
 			/>
 			<p>{task}</p>
 		</>
