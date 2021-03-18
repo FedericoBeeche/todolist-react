@@ -19,7 +19,7 @@ export function ToDo() {
 		}
 	};
 
-	//solucion public support para deleteTask
+	// solucion public support para deleteTask
 	// const deleteTask = id => {
 	// 	let newTasks = [...task];
 	// 	newTasks.splice(id, 1);
@@ -35,10 +35,11 @@ export function ToDo() {
 
 	return (
 		<div className="card" id="mainCard">
-			<div className="card-body"></div>
-			<h1 className="card-header">Todo List</h1>
+			<h1 id="header" className="card-header">
+				Todo List
+			</h1>
 			<input
-				className="mb-2"
+				className="mb-2 inputClass"
 				type="text"
 				required
 				value={userInput}
@@ -46,12 +47,16 @@ export function ToDo() {
 				onKeyPress={e => (e.key === "Enter" ? handleInfo() : "")}
 			/>
 			{task.map((final, id) => (
-				<span className="card-subtitle mb-3" key={id}>
+				<span className="card-subtitle mb-4 claseTask" key={id}>
 					{final}
-					<button onClick={() => deleteTask(id)}>Delete</button>
+					<button id="botonDelete" onClick={() => deleteTask(id)}>
+						<i className="far fa-times-circle"></i>
+					</button>
 				</span>
 			))}
-			<p>{count} item(s) left </p>
+			<p id="counter" className="ml-1">
+				{count} item(s) left{" "}
+			</p>
 		</div>
 	);
 }

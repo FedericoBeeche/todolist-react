@@ -11,7 +11,35 @@
     import 'relative/path/to/stylesheet.scss';
 
 */
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
 #mainCard {
-    max-width: 60%;
+    max-width: 40%;
     margin: auto; 
+}
+
+#counter {
+    font-size: 14px;
+} 
+
+#header {
+    text-align: center;
+}
+
+#botonDelete {
+    border: none;
+    background-color: white;;
+}
+
+.claseTask {
+    text-align: center;
+}
+
+.inputClass {
+    width: 80%;
+    margin: auto;
+    margin-top: 10px;
 }
